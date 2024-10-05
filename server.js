@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
   res.write("hello\n");
   setTimeout(() => {
     res.end("Node.js");
-  }, 10000);
+  }, 2000);
 });
 
 server.listen(8000, () => console.log("Hello Node.js"));
