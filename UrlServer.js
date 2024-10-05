@@ -6,17 +6,24 @@ http
         res.setHeader("Content-Type", "text/html");
 
         if (path === '/user') {
-            res.end("[user] name : gj, age : 18");
+            user(req, res);
         } else if (path === '/feed') {
-            res.end(`<ul>
-            <li>picture1</li>
-            <li>picture2</li>
-            <li>picture3</li>
-            </ul>    
-                `);
+            feed(req, res);
         } else {
             res.statusCode = 404;
             res.end("404 not found");
         }
-    })
-    .listen("3000", () => console.log("라우터를 만들자!"));
+})
+.listen("3000", () => console.log("라우터를 만들자!"));
+
+const user = (req, res) => {
+    res.end("[user] name : gj, age : 18");
+};
+const feed = (req, res) => {
+    res.end(`<ul>
+        <li>picture1</li>
+        <li>picture2</li>
+        <li>picture3</li>
+        </ul>    
+    `);
+}
