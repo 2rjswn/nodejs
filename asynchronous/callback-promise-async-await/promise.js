@@ -33,5 +33,7 @@ function registerByPromise(user) {
 }
 
 const myUser = {mail : "ddd", pwd : "dddd", name : "ddddd"};
-const result = registerByPromise(myUser)
-result.then(console.log)
+// const result = registerByPromise(myUser);
+// result.then(console.log).catch(console.error);
+allResult = Promise.all([saveDB(myUser), sendMail(myUser), getResult(myUser)]);
+allResult.then(console.log) 

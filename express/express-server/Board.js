@@ -8,7 +8,13 @@ app.get("/", (req, res) => {
 });
 app.post("/posts", (req, res) => {
     const {title , name , text} = req.body;
-    posts.push({id: posts.length + 1, title, name, text, createDt: new Date()});
+    posts.push({
+                id: posts.length + 1,
+                title,
+                name,
+                text,
+                createDt: new Date()
+            });
     res.json({title, name, text});
 });
 app.delete("/posts/:id", (req, res) => {
@@ -22,4 +28,4 @@ app.delete("/posts/:id", (req, res) => {
     }
     res.json("Not Changed")
 });
-app.listen(3000, ()=> console.log("게시판 서버 시작!"));
+app.listen(3001, ()=> console.log("게시판 서버 시작!"));
