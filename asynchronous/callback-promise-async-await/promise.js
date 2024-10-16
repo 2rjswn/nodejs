@@ -27,12 +27,12 @@ function getResult(user) {
 }
 
 function registerByPromise(user) {
-    const result = saveDB(user).then(sendMail).then(getResult);
+    const result = saveDB(user).then(sendMail).then(getResult).catch(error => new Error(error)).finally(() => console.log("완료"));
     console.log(result);
     return result;
 }
 
-const myUser = {mail : "ddd", pwd : "dddd", name : "ddddd"};
+const myUser = {mail : "1234@gmail.com", pwd : "1234", name : "gun"};
 // const result = registerByPromise(myUser);
 // result.then(console.log).catch(console.error);
 allResult = Promise.all([saveDB(myUser), sendMail(myUser), getResult(myUser)]);
