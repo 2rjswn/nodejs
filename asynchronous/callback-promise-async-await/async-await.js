@@ -1,10 +1,15 @@
-async function myName() {
-    return "kdh";
+function waitOneSecond(msg) {
+    return new Promise((resolve, _) => {
+        setTimeout(() => resolve(`${msg}`), 1000);
+    });
 }
 
-async function showName() {
-    const name = await myName();
-    console.log(name)
+async function countTen() {
+    for (let x of [...Array(10).keys()]) {
+        let result = await waitOneSecond(`${x + 1}초 대기중`);
+        console.log(result);
+    }
+    console.log("완료");
 }
 
-console.log(showName());
+countTen();
